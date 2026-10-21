@@ -1,0 +1,10 @@
+main
+main.exe
+
+*.o
+
+build/
+bin/
+
+.DS_Store
+Thumbs.db
