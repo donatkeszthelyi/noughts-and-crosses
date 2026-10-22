@@ -6,9 +6,6 @@
 
 using namespace std;
 
-random_device rd;
-mt19937 gen(rd());
-
 void print_board(char board[3][3]) {
     cout << endl;
     cout << "-------- NOUGTHS AND CROSSES --------\n\n";
@@ -68,6 +65,9 @@ void player_move(char board[3][3], char player) {
 }
 
 Position computer_move(char board[3][3], char player, char difficulty) {
+    random_device rd;
+    mt19937 gen(rd());
+
     Position invalid = {'\0', '\0'};
     if (difficulty == 'r') {
         Position empty_positions[9];
