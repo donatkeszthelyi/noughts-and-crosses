@@ -40,7 +40,8 @@ bool is_valid_move(char board[3][3], char position[2]);
  */
 void player_move(char board[3][3], char player);
 
-/* Function to make the computer move.
+/* Function to make the computer move. The behaviour depends on the set
+ * difficulty.
  *  
  * @param board The 2D board array.
  * @param player Either 'O' or 'X' depending on the current turn.
@@ -56,5 +57,25 @@ Position computer_move(char board[3][3], char player, char difficulty);
  * @return '\0' if the game is not won, 'X' if player X won, 'O' if player O won.
  */
 char check_win(char board[3][3]);
+
+/* Helper function to evaluate the state of the board.
+ *
+ * @param board The 2D board array.
+ * @param depth The number of turns from the end of the game.
+ * @return (10 - depth) if the 'O' player won (the default computer), (depth - 10) if the
+ * 'X' player won (the default human player) and 0 if neither won.
+ */
+int score(char board[3][3], int depth);
+
+/* Function to implement the minimax algorithm, which check every possible outcome
+ * of the possible moves and scores them accordingly, in order to chose the best.
+ *
+ * @param board The 2D board array.
+ * @param turn The current player's symbol.
+ * @param depth The number of turns from the end of the game.
+ * @param easy Determines the difficulty.
+ * @return The end score of a game.
+ */
+int minimax(char board[3][3], char turn, int depth, bool easy = false);
 
 #endif

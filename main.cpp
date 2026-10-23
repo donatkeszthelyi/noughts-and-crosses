@@ -23,6 +23,7 @@ int main() {
     char game_type;
     bool play = true;
     char play_again;
+    char difficulty;
 
     uniform_int_distribution<int> dist(0, 1);
     turn = dist(gen);
@@ -42,7 +43,7 @@ int main() {
                     cout << "\033[2J\033[1;1H";
                     print_board(board);
                     cout << "PLAYER [" << player << "] WINS!\n\n";
-                    cout << "Play again? yes (y) or no (n): ";
+                    cout << "Play again?\nEnter 'y' to play, 'n' to quit, and any other key to return to the menu: ";
                     cin >> play_again;
                     if (play_again == 'y') {
                         for (int r = 0; r < 3; r++) {
@@ -76,7 +77,7 @@ int main() {
                     cout << "\033[2J\033[1;1H";
                     print_board(board);
                     cout << "IT IS A TIE!\n\n";
-                    cout << "Play again? yes (y) or no (n): ";
+                    cout << "Play again?\nEnter 'y' to play, 'n' to quit, and any other key to return to the menu: ";
                     cin >> play_again;
                     if (play_again == 'y') {
                         for (int r = 0; r < 3; r++) {
@@ -114,6 +115,17 @@ int main() {
 
         // SINGLEPLAYER LOOP
         if (game_type == 's') {
+             while (true) {
+                cout << "Choose a difficulty! easy (e), hard (h) or random move (r): ";
+                cin >> difficulty;
+                if (difficulty == 'e' || difficulty == 'h' || difficulty == 'r') {
+                    break;
+                } else {
+                    cin.clear();
+                    cout << "Unkown difficulty type. Please enter 'e', 'h' or 'r': ";
+                    cin >> difficulty;
+                }
+            }
             while (true) {
                 cout << "\033[2J\033[1;1H";
                 print_board(board);
@@ -123,7 +135,7 @@ int main() {
                     cout << "\033[2J\033[1;1H";
                     print_board(board);
                     cout << "PLAYER [" << player << "] WINS!\n\n";
-                    cout << "Play again? yes (y) or no (n): ";
+                    cout << "Play again?\nEnter 'y' to play, 'n' to quit, and any other key to return to the menu: ";
                     cin >> play_again;
                     if (play_again == 'y') {
                         for (int r = 0; r < 3; r++) {
@@ -157,7 +169,7 @@ int main() {
                     cout << "\033[2J\033[1;1H";
                     print_board(board);
                     cout << "IT IS A TIE!\n\n";
-                    cout << "Play again? yes (y) or no (n): ";
+                    cout << "Play again?\nEnter 'y' to play, 'n' to quit, and any other key to return to the menu: ";
                     cin >> play_again;
                     if (play_again == 'y') {
                         for (int r = 0; r < 3; r++) {
@@ -184,7 +196,7 @@ int main() {
                     player = 'O';
                     sleep_for(nanoseconds(10));
                     sleep_until(system_clock::now() + seconds(0));
-                    Position position = computer_move(board, player, 'r');
+                    Position position = computer_move(board, player, difficulty);
                     cout << "\033[2J\033[1;1H";
                     print_board(board);
                     cout << "[O] The computer's turn: ";
@@ -207,7 +219,7 @@ void show_menu(char &game_type) {
     cout << "\033[2J\033[1;1H";
     cout << "\n-------- NOUGTHS AND CROSSES --------\n\n";
     while (true) {
-        cout << "Choose a game type!\n Singleplayer ('s') or multiplayer ('m'): ";
+        cout << "Choose a game type!\n Single-player ('s') or multiplayer ('m'): ";
         cin >> game_type;
         if (game_type == 's' || game_type == 'm') {
             break;

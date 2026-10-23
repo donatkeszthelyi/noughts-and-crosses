@@ -6,7 +6,7 @@ A command-line implementation of Noughts and Crosses (Tic-Tac-Toe) written in C+
 
 - Single-player mode against a computer opponent.
 - Two-player local multiplayer mode.
-- Randomized computer moves.
+- Difficulty selection for single-player mode.
 - Input validation for player moves.
 - Win and draw detection.
 - Board display using a 3 × 3 grid.
@@ -41,6 +41,12 @@ Choose a game mode when prompted:
 - `s` — Single-player mode.
 - `m` — Multiplayer mode.
 
+Choose a difficulty when prompted (in sigle-player mode):
+
+- `e` - Easy
+- `h` - Hard
+- `r` - Random move (the computer chooses a randomly)
+
 ## How to Play
 
 The game board consists of three rows (`A`–`C`) and three columns (`1`–`3`).
@@ -74,7 +80,6 @@ Invalid or occupied positions are rejected.
 
 ## Current Limitations
 
-- The computer opponent currently supports random moves only.
 - The game does not currently provide persistent scores or match history.
 
 ## License
