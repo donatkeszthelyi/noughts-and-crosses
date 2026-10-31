@@ -194,15 +194,15 @@ int minimax(char board[3][3], char turn, int depth, bool easy) {
     char position[2] = {moves[index].row, moves[index].col};
     make_move(board, position, turn);
     return scores[index];
-} else {
-    auto it = easy 
-        ? max_element(scores.begin(), scores.end())
-        : min_element(scores.begin(), scores.end());
+    } else {
+        auto it = easy 
+            ? max_element(scores.begin(), scores.end())
+            : min_element(scores.begin(), scores.end());
 
-    int index = distance(scores.begin(), it);
-    char position[2] = {moves[index].row, moves[index].col};
-    make_move(board, position, turn);
-    return scores[index];
-}
+        int index = distance(scores.begin(), it);
+        char position[2] = {moves[index].row, moves[index].col};
+        make_move(board, position, turn);
+        return scores[index];
+    }
 }
 

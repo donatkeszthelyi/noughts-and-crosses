@@ -51,6 +51,7 @@ int main() {
                                 board[r][c] = ' ';
                             }
                         }
+                        turn = dist(gen);
                         continue;
                     } else if (play_again == 'n') {
                         play = false;
@@ -61,7 +62,7 @@ int main() {
                                 board[r][c] = ' ';
                             }
                         }
-                        play = false;
+                        turn = dist(gen);
                         show_menu(game_type);
                     }
                     break;
@@ -85,6 +86,7 @@ int main() {
                                 board[r][c] = ' ';
                             }
                         }
+                        turn = dist(gen);
                         continue;
                     } else if (play_again == 'n') {
                         play = false;
@@ -95,7 +97,7 @@ int main() {
                                 board[r][c] = ' ';
                             }
                         }
-                        play = false;
+                        turn = dist(gen);
                         show_menu(game_type);
                     }
                     break;
@@ -115,7 +117,7 @@ int main() {
 
         // SINGLEPLAYER LOOP
         if (game_type == 's') {
-             while (true) {
+            while (true) {
                 cout << "Choose a difficulty! easy (e), hard (h) or random move (r): ";
                 cin >> difficulty;
                 if (difficulty == 'e' || difficulty == 'h' || difficulty == 'r') {
@@ -143,6 +145,7 @@ int main() {
                                 board[r][c] = ' ';
                             }
                         }
+                        turn = dist(gen);
                         continue;
                     } else if (play_again == 'n') {
                         play = false;
@@ -153,7 +156,7 @@ int main() {
                                 board[r][c] = ' ';
                             }
                         }
-                        play = false;
+                        turn = dist(gen);
                         show_menu(game_type);
                     }
                     break;
@@ -177,6 +180,7 @@ int main() {
                                 board[r][c] = ' ';
                             }
                         }
+                        turn = dist(gen);
                         continue;
                     } else if (play_again == 'n') {
                         play = false;
@@ -187,7 +191,7 @@ int main() {
                                 board[r][c] = ' ';
                             }
                         }
-                        play = false;
+                        turn = dist(gen);
                         show_menu(game_type);
                     }
                     break;
